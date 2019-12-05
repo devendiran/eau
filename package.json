@@ -5,13 +5,14 @@
     "homepage": "./",
     "description": "An example of an autoupdating electron app",
     "repository": "https://github.com/devendiran/eau",
-    "main": "electron.js",
+    "main": "main.js",
     "dependencies": {
         "electron-updater": "^2.18.2"
     },
     "scripts": {
         "build": "build --win",
-        "ship": "build --win -p always"
+        "ship": "build --win -p always",
+        "start": "electron ."
     },
     "devDependencies": {
         "electron": "^1.7.5",
