@@ -4,7 +4,7 @@
 <head>
   <meta name="google-site-verification" content="n8IXlaYGHNpoNSOwk1MQg04osUerpzYOfDN-jWqpTp8" />
   <meta charset="utf-8">
-  <title>Siemens Consultant Contractor</title>
+  <title>Siemens Consultant Contractor1</title>
   <base href="./index.html">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -123,5 +123,18 @@
   </script>
 
 <script type="text/javascript" src="runtime.15e5e6f3ede74a85f2ff.js"></script><script type="text/javascript" src="polyfills.b6d24183db8ea8c202dd.js"></script><script type="text/javascript" src="scripts.52c82cca9dda8d724745.js"></script><script type="text/javascript" src="main.42813615527b84f82bf1.js"></script></body>
+<script>
+  const ipcRenderer = require('electron').ipcRenderer;
+
+  // wait for an updateReady message
+  ipcRenderer.on('updateReady', function(event, text) {
+      // changes the text of the button
+      var container = document.getElementById('ready');
+      container.innerHTML = "new version ready!";
+  })
+</script>
+Version: <span id="version">v0.1.10</span>
+<!-- the button onClick sends a quitAndInstall message to the electron main process -->
+<button id="ready" onClick="ipcRenderer.send('quitAndInstall')">no updates ready</button>
 
 </html>
